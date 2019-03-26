@@ -1,8 +1,13 @@
 import React from "react";
+import Styles from "./StaffList.module.css";
 
 class StaffList extends React.Component {
   render() {
-    return <div>This is a StaffList test</div>;
+    return (
+      <div>
+        <div className={Styles.staffCont} />
+      </div>
+    );
   }
 }
 

@@ -10,12 +10,19 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        This is the App Page test
         <NavBar />
-        <Clock />
-        <StaffList />
-        <UserList />
-        <Grid />
+        <div className="mainCont">
+          <div>
+            <UserList />
+            <Clock />
+          </div>
+          <div>
+            <StaffList />
+          </div>
+          <div>
+            <Grid />
+          </div>
+        </div>
       </div>
     );
   }

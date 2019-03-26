@@ -1,8 +1,13 @@
 import React from "react";
+import Styles from "./UserList.module.css";
 
 class UserList extends React.Component {
   render() {
-    return <div>This is a user List Test</div>;
+    return (
+      <div>
+        <div className={Styles.userCont}>User List</div>
+      </div>
+    );
   }
 }
 

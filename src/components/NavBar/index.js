@@ -1,8 +1,13 @@
 import React from "react";
+import Styles from "./NavBar.module.css";
 
 class NavBar extends React.Component {
   render() {
-    return <div>This is a test fam</div>;
+    return (
+      <div>
+        <div className={Styles.headerCont} />
+      </div>
+    );
   }
 }
 

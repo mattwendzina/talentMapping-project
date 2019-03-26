@@ -1,0 +1,15 @@
+.gridRow {
+  display: flex;
+  align-items: centre;
+  justify-content: center;
+  width: 10em;
+  height: 5em;
+  border: 1px solid;
+}
+
+.cell {
+  width: 5em;
+  height: 5em;
+  border: 1px black solid;
+  background-color: grey;
+}

@@ -1,0 +1,7 @@
+.userCont {
+  width: 15em;
+  height: 25em;
+  border: 1px solid black;
+  margin: 2em;
+  order: 1;
+}
