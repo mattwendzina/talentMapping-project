@@ -1,15 +1,25 @@
+.Grid {
+  display: flex;
+}
+
 .gridRow {
   display: flex;
   align-items: centre;
   justify-content: center;
-  width: 10em;
-  height: 5em;
-  border: 1px solid;
+  width: 40em;
+  height: 13.33em;
+  border: 5px solid white;
+  align-content: center;
+  justify-content: center;
+  display: flex;
 }
 
 .cell {
-  width: 5em;
-  height: 5em;
-  border: 1px black solid;
-  background-color: grey;
+  display: flex;
+  width: 40em;
+  height: 13.33em;
+  border: 3px #c2c2c2 solid;
+  background-color: white;
+  align-content: centre;
+  justify-content: center;
 }

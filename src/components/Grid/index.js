@@ -16,12 +16,12 @@ class Grid extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.Grid}>
         <div className={styles.gridCont}>
           {this.state.board.map(row => (
             <div className={styles.gridRow}>
               {row.map(cell => (
-                <span className={styles.cell}>{cell === 0}</span>
+                <span className={styles.cell} />
               ))}
             </div>
           ))}

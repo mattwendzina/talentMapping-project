@@ -11,16 +11,20 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar />
-        <div className="mainCont">
-          <div>
-            <UserList />
-            <Clock />
+        <div className="container">
+          <div className="listCont">
+            <div>
+              <UserList />
+              <Clock />
+            </div>
+            <div>
+              <StaffList />
+            </div>
           </div>
-          <div>
-            <StaffList />
-          </div>
-          <div>
-            <Grid />
+          <div className="gridCont">
+            <div className="Grid">
+              <Grid />
+            </div>
           </div>
         </div>
       </div>
