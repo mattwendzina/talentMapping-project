@@ -31,15 +31,16 @@ class LogInContainer extends React.Component {
                 />
                 <br />
                 <br />
-                <input
+                <Button
                     variant="contained"
                     color="secondary"
                     size="small"
                     type="submit"
                     value="Log in"
                     fullWidth={true}
-                />
-
+                >
+                    Log in
+                </Button>
                 <br />
             </form>
         );
