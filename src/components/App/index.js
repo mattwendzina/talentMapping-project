@@ -5,16 +5,6 @@ import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
 import "./App.css";
-import styled from "styled-components";
-import DnDTest from "../DnD/DnDTest";
-
-const AppWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-`;
-
-const Container = styled.div``;
 
 class App extends React.Component {
   constructor(props) {
