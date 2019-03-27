@@ -3,6 +3,7 @@ import Styles from "./StaffList.module.css";
 import ReactDOM from "react-dom";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import Staff from "../Staff";
 
 class StaffList extends React.Component {
   render() {
@@ -25,6 +26,9 @@ class StaffList extends React.Component {
           >
             +
           </Button>
+          <ul className={Styles.staff}>
+            <Staff />
+          </ul>
         </div>
       </div>
     );

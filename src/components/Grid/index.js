@@ -7,7 +7,9 @@ const numCols = 3;
 class Grid extends React.Component {
   constructor(props) {
     super(props);
-    const board = new Array(numRows).fill(new Array(numCols).fill(0));
+    const board = new Array(numRows).fill(
+      new Array(numCols).fill([["mate", "no", "WTP"], ["go", "Home", "Roger"]])
+    );
 
     this.state = {
       board

@@ -8,10 +8,21 @@ import LogInHeader from "../LogInHeader";
 import LogInContainer from "../LogInContainer";
 import Logo from "../Logo";
 import "./App.css";
+import styled from "styled-components";
+import DnDTest from "../DnD/DnDTest";
+
+const AppWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+`;
+
+const Container = styled.div``;
 
 class App extends React.Component {
   render() {
     return (
+
       <div>
         <div className="App">
           <NavBar />
@@ -24,6 +35,7 @@ class App extends React.Component {
               <div>
                 <StaffList />
               </div>
+
             </div>
             <div className="gridCont">
               <div className="Grid">
@@ -48,6 +60,11 @@ class App extends React.Component {
             <h6>WTP © 2019</h6>
           </div>
         </div>
+        <AppWrapper>
+          <Container>
+            <DnDTest />
+          </Container>
+        </AppWrapper>
       </div>
     );
   }
