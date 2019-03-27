@@ -9,7 +9,7 @@ class NavBar extends React.Component {
     return (
       <div className={Styles.headerCont}>
         <div className={Styles.navLeft}>
-          <Button variant="contained" background-color="white">
+          <Button variant="contained" background-color="white" size="small">
             Back
           </Button>
 
@@ -22,7 +22,7 @@ class NavBar extends React.Component {
         </div>
 
         <div className={Styles.navRight}>
-          <Button variant="contained" background-color="white">
+          <Button variant="contained" background-color="white" size="small">
             Logout
           </Button>
         </div>

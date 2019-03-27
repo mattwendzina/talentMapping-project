@@ -21,6 +21,7 @@ class StaffList extends React.Component {
             className={Styles.button}
             type="submit"
             color="secondary"
+            size="small"
           >
             +
           </Button>

@@ -14,6 +14,7 @@ class UserList extends React.Component {
           <Button
             variant="contained"
             color="secondary"
+            size="small"
             className={Styles.button}
             type="submit"
           >
