@@ -2,15 +2,24 @@
   width: 17em;
   height: 25em;
   background-color: #eef6f8;
-  margin: 2em;
+  margin: 1em;
   order: 1;
+  padding: 0;
 }
 
-.users {
+.usersList {
   color: #797a7e;
-  margin: 2px;
+  margin: 1em;
 }
-
+/* .users {
+  width: 14em;
+  height: 3em;
+  background-color: rgb(174, 175, 177);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+} */
 /* 
 .placeholder {
   border: 2px white solid;
