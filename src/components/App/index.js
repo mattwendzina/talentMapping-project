@@ -1,15 +1,11 @@
 import React from "react";
-import NavBar from "../NavBar/index";
-import Clock from "../Clock/index";
-import Grid from "../Grid/index";
-import StaffList from "../StaffList/index";
-import UserList from "../UserList/index";
-import LogInHeader from "../LogInHeader";
-import LogInContainer from "../LogInContainer";
-import Logo from "../Logo";
+import { withRouter } from "react-router";
+
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import styled from "styled-components";
-import DnDTest from "../DnD/DnDTest";
+import Login from "../Login";
+import Board from "../Board";
 
 const AppWrapper = styled.div`
     display: flex;
@@ -17,115 +13,56 @@ const AppWrapper = styled.div`
     margin-top: 100px;
 `;
 
-const config = require("../../config");
-const Container = styled.div``;
-console.log(config.API_URI);
+//const Container = styled.div``;
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: Boolean(localStorage.getItem("token")),
-            email: "",
-            password: ""
+            isLoggedIn: Boolean(localStorage.getItem("token"))
         };
     }
 
-    onChange = event => {
-        const { name, value } = event.target;
+    onLogin = token => {
+        localStorage.setItem("token", token);
         this.setState(state => ({
-            [name]: value
+            isLoggedIn: true
         }));
-    };
 
-    onLogin = event => {
-        event.preventDefault();
-        fetch(`${config.API_URI}/authenticate`, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: this.state.email,
-                password: this.state.password
-            })
-        })
-            .then(res => res.json())
-            .then(({ message, success, token }) => {
-                if (success && token) {
-                    localStorage.setItem("token", token);
-                    this.setState(state => ({
-                        isLoggedIn: true
-                    }));
-                }
-                console.log(message);
-            })
-            .then(
-                this.setState(state => ({
-                    email: "",
-                    password: ""
-                }))
-            )
-            .catch(err => console.error(err));
-        //.finally(() => this.setState(() => ({ isLoading: false })));
+        this.props.history.push("/");
     };
 
     render() {
         return (
-            <>
-                {!this.state.isLoggedIn ? (
-                    <div>
-                        <div>
-                            <LogInHeader />
-                        </div>
-                        <div>
-                            <Logo />
-                        </div>
-                        <div className="logInCont">
-                            <LogInContainer
-                                onLogin={this.onLogin}
-                                onChange={this.onChange}
-                                email={this.state.email}
-                                password={this.state.password}
-                            />
-                        </div>
-                        <div>
-                            <h6>WTP © 2019</h6>
-                        </div>
-                    </div>
-                ) : (
-                    <div>
-                        <div className="App">
-                            <NavBar />
-                            <div className="container">
-                                <div className="listCont">
-                                    <div>
-                                        <UserList />
-                                        <Clock />
-                                    </div>
-                                    <div>
-                                        <StaffList />
-                                    </div>
-                                </div>
-                                <div className="gridCont">
-                                    <div className="Grid">
-                                        <Grid />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <br />
-                        {/* <AppWrapper>
-                        <Container>
-                            <DnDTest />
-                        </Container>
-                    </AppWrapper> */}
-                    </div>
-                )}
-            </>
+            <Switch>
+                <Route
+                    exact
+                    path="/login"
+                    component={() => (
+                        <Login
+                            onLogin={this.onLogin}
+                            onChange={this.onChange}
+                            email={this.state.email}
+                            password={this.state.password}
+                        />
+                    )}
+                />
+                <Route
+                    path="/"
+                    component={() =>
+                        !this.state.isLoggedIn ? (
+                            <Redirect to="/login" />
+                        ) : (
+                            <Board isLoggedIn={this.state.isLoggedIn} />
+                        )
+                    }
+                />
+                {/* <Route path='/:id' render={({match}) => {
+                match.params.id
+                }} */}
+            </Switch>
         );
     }
 }
 
-export default App;
+export default withRouter(App);
