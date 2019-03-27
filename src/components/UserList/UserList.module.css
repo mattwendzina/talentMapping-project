@@ -1,0 +1,21 @@
+.userCont {
+  width: 17em;
+  height: 25em;
+  background-color: #eef6f8;
+  margin: 2em;
+  order: 1;
+}
+
+.users {
+  color: #797a7e;
+  margin: 2px;
+}
+
+/* 
+.placeholder {
+  border: 2px white solid;
+}
+
+.button {
+  background-color: white;
+} */

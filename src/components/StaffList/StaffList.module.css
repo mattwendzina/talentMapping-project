@@ -1,0 +1,20 @@
+.staffCont {
+  width: 17em;
+  height: 80vh;
+  margin: 2em;
+  background-color: #eef6f8;
+  margin: 0;
+}
+
+.users {
+  color: #797a7e;
+  margin: 5px;
+}
+
+.placeholder {
+  border: 2px white solid;
+}
+
+.button {
+  background-color: white;
+}
