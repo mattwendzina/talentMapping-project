@@ -19,7 +19,7 @@ const AppWrapper = styled.div`
 
 const config = require("../../config");
 const Container = styled.div``;
-
+console.log(config.API_URI);
 class App extends React.Component {
     constructor(props) {
         super(props);
