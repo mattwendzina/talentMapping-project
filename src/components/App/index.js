@@ -17,6 +17,7 @@ const AppWrapper = styled.div`
     margin-top: 100px;
 `;
 
+const config = require("../../config");
 const Container = styled.div``;
 
 class App extends React.Component {
@@ -38,7 +39,7 @@ class App extends React.Component {
 
     onLogin = event => {
         event.preventDefault();
-        fetch(`http://localhost:5000/authenticate`, {
+        fetch(`${config.API_URI}/authenticate`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
