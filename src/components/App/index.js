@@ -17,10 +17,15 @@ const AppWrapper = styled.div`
 const Container = styled.div``;
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: false
+    };
+  }
   render() {
     return (
       <div className="App">
-        {" "}
         <NavBar />
         <div className="container">
           <div className="listCont">
@@ -38,11 +43,11 @@ class App extends React.Component {
             </div>
           </div>
         </div>
-        <AppWrapper>
+        {/* <AppWrapper>
           <Container>
             <DnDTest />
           </Container>
-        </AppWrapper>
+        </AppWrapper> */}
       </div>
     );
   }
