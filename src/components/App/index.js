@@ -1,68 +1,69 @@
 import React from "react";
-import NavBar from "../NavBar/index";
-import Clock from "../Clock/index";
-import Grid from "../Grid/index";
-import StaffList from "../StaffList/index";
-import UserList from "../UserList/index";
-import LogInHeader from "../LogInHeader";
-import LogInContainer from "../LogInContainer";
-import Logo from "../Logo";
+import { withRouter } from "react-router";
+
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
+import styled from "styled-components";
+import Login from "../Login";
+import Board from "../Board";
+
+const AppWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+`;
+
+//const Container = styled.div``;
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: Boolean(localStorage.getItem("token"))
+        };
+    }
+
+    onLogin = token => {
+        localStorage.setItem("token", token);
+        this.setState(state => ({
+            isLoggedIn: true
+        }));
+
+        this.props.history.push("/");
     };
-  }
-  render() {
-    return (
-      <div>
-        <div className="App">
-          <NavBar />
-          <div className="container">
-            <div className="listCont">
-              <div>
-                <UserList />
-                <Clock />
-              </div>
-              <div>
-                <StaffList />
-              </div>
-      
-            </div>
-            <div className="gridCont">
-              <div className="Grid">
-                <Grid />
-              </div>
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <div>
-          <div>
-            <LogInHeader />
-          </div>
-          <div>
-            <Logo />
-          </div>
-          <div className="logInCont">
-            <LogInContainer />
-          </div>
-          <div>
-            <h6>WTP © 2019</h6>
-          </div>
-        </div>
-        {/* <AppWrapper>
-          <Container>
-            <DnDTest />
-          </Container>
-        </AppWrapper> */}
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <Switch>
+                <Route
+                    exact
+                    path="/login"
+                    component={() => (
+                        <Login
+                            onLogin={this.onLogin}
+                            onChange={this.onChange}
+                            email={this.state.email}
+                            password={this.state.password}
+                        />
+                    )}
+                />
+                <Route
+                    path="/"
+                    component={() =>
+                        !this.state.isLoggedIn ? (
+                            <Redirect to="/login" />
+                        ) : (
+                            <Board isLoggedIn={this.state.isLoggedIn} />
+                        )
+                    }
+                />
+                {/* <Route path='/:id' render={({match}) => {
+                match.params.id
+                }} */}
+            </Switch>
+        );
+    }
+
 }
 
-export default App;
+export default withRouter(App);
