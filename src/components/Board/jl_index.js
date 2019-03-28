@@ -54,7 +54,7 @@ class Board extends React.Component {
     //import DnDTest from "../DnD/DnDTest";
 
     handleDrop = (userId, position) => {
-        const userIndex = this.state.testUsers.findIndex(function(user) {
+        const userIndex = this.state.testUsers.findIndex(function (user) {
             return user.user == userId;
         });
 

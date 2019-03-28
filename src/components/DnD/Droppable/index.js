@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-const config = require("../../../config");
+//const config = require("../../../config");
 class Droppable extends React.Component {
     drop = event => {
         event.preventDefault();

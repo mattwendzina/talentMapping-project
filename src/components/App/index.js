@@ -3,58 +3,58 @@ import { withRouter } from "react-router";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
-import styled from "styled-components";
+//import styled from "styled-components";
 import Login from "../Login";
 import Board from "../Board";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: Boolean(localStorage.getItem("token"))
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: Boolean(localStorage.getItem("token"))
+        };
+    }
+
+    onLogin = token => {
+        localStorage.setItem("token", token);
+        this.setState(state => ({
+            isLoggedIn: true
+        }));
+
+        this.props.history.push("/");
     };
-  }
 
-  onLogin = token => {
-    localStorage.setItem("token", token);
-    this.setState(state => ({
-      isLoggedIn: true
-    }));
-
-    this.props.history.push("/");
-  };
-
-  render() {
-    return (
-      <Switch>
-        <Route
-          exact
-          path="/login"
-          component={() => (
-            <Login
-              onLogin={this.onLogin}
-              onChange={this.onChange}
-              email={this.state.email}
-              password={this.state.password}
-            />
-          )}
-        />
-        <Route
-          path="/"
-          component={() =>
-            !this.state.isLoggedIn ? (
-              <Redirect to="/login" />
-            ) : (
-              <Board isLoggedIn={this.state.isLoggedIn} />
-            )
-          }
-        />
-        {/* <Route path='/:id' render={({match}) => {
+    render() {
+        return (
+            <Switch>
+                <Route
+                    exact
+                    path="/login"
+                    component={() => (
+                        <Login
+                            onLogin={this.onLogin}
+                            onChange={this.onChange}
+                            email={this.state.email}
+                            password={this.state.password}
+                        />
+                    )}
+                />
+                <Route
+                    path="/"
+                    component={() =>
+                        !this.state.isLoggedIn ? (
+                            <Redirect to="/login" />
+                        ) : (
+                            <Board isLoggedIn={this.state.isLoggedIn} />
+                        )
+                    }
+                />
+                {/* <Route path='/:id' render={({match}) => {
                 match.params.id
                 }} */}
-      </Switch>
-    );
-  }
+            </Switch>
+        );
+    }
 }
 
 export default withRouter(App);
