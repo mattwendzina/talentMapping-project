@@ -1,4 +1,5 @@
 import React from "react";
+import Styles from "./staff.module.css";
 
 import Draggable from "../DnD/Draggable";
 import Droppable from "../DnD/Droppable";
@@ -14,16 +15,9 @@ class Staff extends React.Component {
   render() {
     return (
       <>
-        <Droppable id="item1">
-          <Draggable id="item1">
-            <span className="staff">Test Name</span>
-          </Draggable>
-        </Droppable>
-        <Droppable id="item2">
-          <Draggable id="item2">
-            <span className="staff">Test Name2</span>
-          </Draggable>
-        </Droppable>
+        <Draggable id={"item1"}>
+          <li className={Styles.staffLi}>{this.props.activeStaffUsers.user}</li>
+        </Draggable>
       </>
     );
   }

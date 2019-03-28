@@ -8,23 +8,30 @@ import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
 import DnDTest from "../DnD/DnDTest";
-import sampleUsers from "../../sampleUsers.js";
+// import sampleUsers from "../../sampleUsers.js";
+// import sampleStaffUsers from "../../sampleStaffUsers.js";
 
 const config = require("../../config");
+
+const token = localStorage.getItem("token");
 
 class RRBoard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       boardId: "",
-      users: [],
-      value: "",
-      users2: []
+      panelists: [],
+      matchPanelists: [],
+      activePanelists: [],
+      staffUsers: [],
+      matchStaffUsers: [],
+      activeStaffUsers: [],
+      panelistsValue: "",
+      staffValue: ""
     };
   }
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
     fetch(`${config.API_URI}/boards?token=${token}`, {
       method: "POST",
       headers: {
@@ -39,46 +46,129 @@ class RRBoard extends React.Component {
           boardId: data.payload.boardId
         }))
       );
+    fetch(`${config.API_URI}/users?token=${token}`)
+      .then(res => res.json())
+      .then(users =>
+        this.setState(
+          () => ({
+            panelists: users.payload,
+            staffUsers: users.payload
+          }),
+          function() {
+            // console.log(this.state.panelists);
+          }
+        )
+      );
   }
 
+  /*------------------------
+  Session Users
+  -------------------------*/
   userInput = event => {
     const { value } = event.target;
     this.setState(
       () => ({
-        value: value
+        panelistsValue: value
       }),
-      this.displayMatches
+      this.displayUserMatches
     );
   };
 
   findMatches = (wordToMatch, user) => {
     return user.filter(user => {
       const regex = new RegExp(wordToMatch, "gi");
-      console.log(regex);
-      return user.userName.match(regex);
+      // console.log(regex);
+      return user.firstName.match(regex);
     });
   };
 
-  displayMatches = () => {
-    const matchesArray = this.findMatches(this.state.value, sampleUsers);
-    console.log(matchesArray);
+  displayUserMatches = () => {
+    const matchesArray = this.findMatches(
+      this.state.panelistsValue,
+      this.state.panelists
+    );
     this.setState(() => ({
-      users: matchesArray
+      matchPanelists: matchesArray
     }));
   };
 
   addUser = e => {
-    console.log(innerText);
+    const userId = e.target.attributes[1].value;
     const innerText = e.target.innerText;
+
+    this.setState(() => ({
+      activePanelists: [
+        ...this.state.activePanelists,
+        { user: innerText, userId }
+      ],
+      panelistsValue: ""
+    }));
+  };
+
+  /*------------------------
+    Staff Users
+-------------------------*/
+  staffInput = event => {
+    const { value } = event.target;
     this.setState(
       () => ({
-        users2: [...this.state.users2, { user: innerText }],
-        value: ""
+        staffValue: value
+      }),
+      this.displayStaffMatches
+    );
+  };
+
+  findMatches = (wordToMatch, staff) => {
+    return staff.filter(user => {
+      console.log(user);
+      const regex = new RegExp(wordToMatch, "gi");
+      return user.firstName.match(regex);
+    });
+  };
+
+  displayStaffMatches = () => {
+    const matchesArray = this.findMatches(
+      this.state.staffValue,
+      this.state.staffUsers
+    );
+    // console.log(matchesArray);
+    this.setState(
+      () => ({
+        matchStaffUsers: matchesArray
       }),
       function() {
-        console.log(this.state.users);
+        // console.log(this.state.staffUsers);
       }
     );
+  };
+
+  addStaffUser = e => {
+    const userId = e.target.attributes[1].value;
+    const innerText = e.target.innerText;
+
+    this.setState(() => ({
+      activeStaffUsers: [
+        ...this.state.activeStaffUsers,
+        { user: innerText, userId }
+      ],
+      staffValue: ""
+    }));
+
+    fetch(`${config.API_URI}/boards/${this.state.boardId}?token=${token}`, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user: userId,
+        position: 0,
+        comments: ""
+      })
+    })
+      .then(res => res.json())
+      //.then(data => console.log(data));
+      .then(data => console.log(data));
   };
 
   render() {
@@ -92,17 +182,27 @@ class RRBoard extends React.Component {
             <div className="container">
               <div className="listCont">
                 <div>
-                  <UserList
-                    users={this.state.users}
-                    userInput={this.userInput}
-                    inputValue={this.state.value}
-                    addUser={this.addUser}
-                    user2={this.state.users2}
+                  <StaffList
+                    className="Style.panelist"
+                    title="Panelist"
+                    staffInput={this.userInput}
+                    inputValue={this.state.panelistsValue}
+                    addStaffUser={this.addUser}
+                    staffUsers={this.state.panelists}
+                    activeStaffUsers={this.state.activePanelists}
                   />
                   <Clock />
                 </div>
                 <div>
-                  <StaffList />
+                  <StaffList
+                    className="Style.staffList"
+                    title="Staff List"
+                    staffInput={this.staffInput}
+                    inputValue={this.state.staffValue}
+                    addStaffUser={this.addStaffUser}
+                    staffUsers={this.state.staffUsers}
+                    activeStaffUsers={this.state.activeStaffUsers}
+                  />
                 </div>
               </div>
               <div className="gridCont">
