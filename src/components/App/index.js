@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Login from "../Login";
 import Board from "../Board";
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);

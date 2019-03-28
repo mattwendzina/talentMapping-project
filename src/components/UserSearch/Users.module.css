@@ -1,0 +1,8 @@
+.userSearchLi {
+  border-radius: 5px;
+  padding: 10px;
+  background: lightblue;
+  margin: 10px;
+  height: 10%;
+  list-style-type: none;
+}

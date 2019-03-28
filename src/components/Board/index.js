@@ -8,16 +8,20 @@ import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
 
-//import DnDTest from "../DnD/DnDTest";
+import DnDTest from "../DnD/DnDTest";
+import sampleUsers from "../../sampleUsers.js";
 
 const config = require("../../config");
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            boardId: "",
-            users: [
+  constructor(props) {
+    super(props);
+    this.state = {
+      boardId: "",
+      users: [],
+      value: "",
+      users2: [],
+      testUsers: [
                 {
                     user: "7654redxcvgyu789olmnbvfr",
                     firstName: "Jonny",
@@ -45,12 +49,12 @@ class Board extends React.Component {
             ]
             // users:[{user: objectID, position: 4}]
         };
-    }
-
+ }
+  
     componentDidMount() {
         const token = localStorage.getItem("token");
         fetch(`${config.API_URI}/boards?token=${token}`, {
-            method: "POST",
+          method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -91,6 +95,7 @@ class Board extends React.Component {
                         </div>
                     </div>
                 )}
+
             </div>
         );
     }
