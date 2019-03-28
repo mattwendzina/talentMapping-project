@@ -20,9 +20,14 @@ const AppWrapper = styled.div`
 const Container = styled.div``;
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: false
+    };
+  }
   render() {
     return (
-
       <div>
         <div className="App">
           <NavBar />
@@ -35,7 +40,7 @@ class App extends React.Component {
               <div>
                 <StaffList />
               </div>
-
+      
             </div>
             <div className="gridCont">
               <div className="Grid">
@@ -60,11 +65,11 @@ class App extends React.Component {
             <h6>WTP © 2019</h6>
           </div>
         </div>
-        <AppWrapper>
+        {/* <AppWrapper>
           <Container>
             <DnDTest />
           </Container>
-        </AppWrapper>
+        </AppWrapper> */}
       </div>
     );
   }
