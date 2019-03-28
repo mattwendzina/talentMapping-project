@@ -7,21 +7,51 @@ import Clock from "../Clock/index";
 import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
+
 import DnDTest from "../DnD/DnDTest";
 import sampleUsers from "../../sampleUsers.js";
 
 const config = require("../../config");
 
-class RRBoard extends React.Component {
+class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       boardId: "",
       users: [],
       value: "",
-      users2: []
-    };
-  }
+      users2: [],
+      testUsers: [
+                {
+                    user: "7654redxcvgyu789olmnbvfr",
+                    firstName: "Jonny",
+                    lastName: "Lester",
+                    position: 0
+                },
+                {
+                    user: "plkjhgfder45678ir",
+                    firstName: "Rhys",
+                    lastName: "Handley",
+                    position: 0
+                },
+                {
+                    user: "0987654esxcvbhjk",
+                    firstName: "Sahela",
+                    lastName: "Rani",
+                    position: 0
+                },
+                {
+                    user: "5rfvbgtyujmr",
+                    firstName: "Matt",
+                    lastName: "Wendzina",
+                    position: 0
+                }
+            ]
+            // users:[{user: objectID, position: 4}]
+        };
+ }
+
+//import DnDTest from "../DnD/DnDTest";
 
   componentDidMount() {
     const token = localStorage.getItem("token");
@@ -40,6 +70,7 @@ class RRBoard extends React.Component {
         }))
       );
   }
+
 
   userInput = event => {
     const { value } = event.target;
@@ -110,6 +141,7 @@ class RRBoard extends React.Component {
                   <Grid />
                 </div>
               </div>
+
             </div>
           </div>
         )}
@@ -118,4 +150,4 @@ class RRBoard extends React.Component {
   }
 }
 
-export default RRBoard;
+export default Board;

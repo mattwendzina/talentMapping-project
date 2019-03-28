@@ -4,29 +4,22 @@ import Draggable from "../DnD/Draggable";
 import Droppable from "../DnD/Droppable";
 
 class Staff extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      talent: []
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            talent: []
+        };
+    }
 
-  render() {
-    return (
-      <>
-        <Droppable id="item1">
-          <Draggable id="item1">
-            <span className="staff">Test Name</span>
-          </Draggable>
-        </Droppable>
-        <Droppable id="item2">
-          <Draggable id="item2">
-            <span className="staff">Test Name2</span>
-          </Draggable>
-        </Droppable>
-      </>
-    );
-  }
+    render() {
+        return (
+            <>
+                <Draggable id={this.props.userId}>
+                    <li className="staff">{this.props.userName}</li>
+                </Draggable>
+            </>
+        );
+    }
 }
 
 export default Staff;

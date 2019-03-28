@@ -7,13 +7,6 @@ import styled from "styled-components";
 import Login from "../Login";
 import Board from "../Board";
 
-const AppWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-`;
-
-//const Container = styled.div``;
 
 class App extends React.Component {
   constructor(props) {

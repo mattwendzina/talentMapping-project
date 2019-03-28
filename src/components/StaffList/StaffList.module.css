@@ -1,15 +1,25 @@
 .staffCont {
-  width: 17em;
-  height: 80vh;
-  margin: 2em;
-  background-color: #eef6f8;
-  margin: 0;
+    width: 17em;
+    height: 80vh;
+    margin: 2em;
+    background-color: #eef6f8;
+    margin: 0;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.users {
+  color: #797a7e;
+  padding: 2px;
+}
 .placeholder {
-  border: 2px white solid;
+    border: 2px white solid;
 }
 
 .button {
-  background-color: white;
+    background-color: white;
 }

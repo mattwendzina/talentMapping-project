@@ -26,7 +26,7 @@ class UserList extends React.Component {
             onChange={this.props.userInput}
           />
 
-          <Button
+        {/*<Button
             variant="contained"
             color="secondary"
             size="small"
@@ -34,7 +34,7 @@ class UserList extends React.Component {
             type="submit"
           >
             +
-          </Button>
+          </Button> */}
 
           {this.props.inputValue && (
             <ul className={Styles.userSearchList}>
