@@ -47,25 +47,23 @@ class Board extends React.Component {
         };
     }
 
-
-  componentDidMount() {
-    const token = localStorage.getItem("token");
-    fetch(`${config.API_URI}/boards?token=${token}`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      //.then(data => console.log(data));
-      .then(data =>
-        this.setState(state => ({
-          boardId: data.payload.boardId
-        }))
-      );
-  }
-
+    componentDidMount() {
+        const token = localStorage.getItem("token");
+        fetch(`${config.API_URI}/boards?token=${token}`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then(res => res.json())
+            //.then(data => console.log(data));
+            .then(data =>
+                this.setState(state => ({
+                    boardId: data.payload.boardId
+                }))
+            );
+    }
 
     render() {
         return (
@@ -93,13 +91,9 @@ class Board extends React.Component {
                         </div>
                     </div>
                 )}
-
             </div>
-          </div>
-        )}
-      </div>
-    );
-  }
+        );
+    }
 }
 
 export default Board;
