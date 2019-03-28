@@ -1,6 +1,6 @@
 .staffCont {
   width: 17em;
-  height: 86.5vh;
+  height: 87.1vh;
   margin: 2em;
   background-color: #eef6f8;
   margin: 0;
@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 15px;
 }
 
 .users {
@@ -22,4 +23,8 @@
 
 .button {
   background-color: white;
+}
+
+ul {
+  padding: 0;
 }

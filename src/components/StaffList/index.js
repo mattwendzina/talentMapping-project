@@ -7,46 +7,34 @@ import Staff from "../Staff";
 import Droppable from "../DnD/Droppable";
 
 class StaffList extends React.Component {
-    render() {
-        return (
-            <div>
+  render() {
+    return (
+      <div>
+        <div className={Styles.staffCont}>
+          <h3 className={Styles.users}>Talent Bank</h3>
+          <TextField
+            className={Styles.placeholder}
+            type="text"
+            placeholder="Seach Employee"
+            variant="standard"
+          />
+          <ul className={Styles.staff}>
+            {this.props.users.map((user, index) => {
+              return (
                 <Droppable>
-                    <div className={Styles.staffCont}>
-                        <h3 className={Styles.users}>Talent Bank</h3>
-                        <TextField
-                            className={Styles.placeholder}
-                            type="text"
-                            placeholder="Seach Employee"
-                            variant="standard"
-                        />
-                        {/* <Button
-                            variant="contained"
-                            className={Styles.button}
-                            type="submit"
-                            color="secondary"
-                            size="small"
-                        >
-                            +
-                        </Button> */}
-
-                        <ul className={Styles.staff}>
-                            {this.props.users.map((user, index) => {
-                                return (
-                                    <Staff
-                                        key={index}
-                                        userId={user.id}
-                                        userName={`${user.firstName} ${
-                                            user.lastName
-                                        }`}
-                                    />
-                                );
-                            })}
-                        </ul>
-                    </div>
+                  <Staff
+                    key={index}
+                    userId={user.id}
+                    userName={`${user.firstName} ${user.lastName}`}
+                  />
                 </Droppable>
-            </div>
-        );
-    }
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default StaffList;

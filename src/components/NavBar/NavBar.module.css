@@ -4,7 +4,7 @@
   justify-content: space-between;
   background-color: #ec0000;
   border: 1px solid #ec0000;
-  width: 100%;
+  width: auto;
   height: 5em;
 }
 .navLeft {
