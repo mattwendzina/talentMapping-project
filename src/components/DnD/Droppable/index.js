@@ -6,6 +6,7 @@ class Droppable extends React.Component {
     event.preventDefault();
     const data = event.dataTransfer.getData("moving");
     event.target.appendChild(document.getElementById(data));
+    console.log(event.target);
   };
 
   allowDrop = event => {
