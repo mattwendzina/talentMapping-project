@@ -9,6 +9,10 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className={Styles.headerCont}>
+        <div>
+          <h2 style={{ color: "white", marginLeft: "10px" }}>Talent Grid</h2>
+        </div>
+
         <div className={Styles.navLeft}>
           <img
             src={RedLogo}

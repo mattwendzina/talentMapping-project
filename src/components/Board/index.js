@@ -7,6 +7,7 @@ import Clock from "../Clock/index";
 import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
+import ProgressBar from "../ProgressBar";
 
 //import DnDTest from "../DnD/DnDTest";
 
@@ -73,6 +74,7 @@ class Board extends React.Component {
         ) : (
           <div className="App">
             <NavBar boardId={this.state.boardId} />
+            <ProgressBar />
             <div className="container">
               <div className="listCont">
                 <div>

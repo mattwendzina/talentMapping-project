@@ -5,7 +5,7 @@ class ProgressBar extends React.Component {
   render() {
     return (
       <div>
-        <LinearProgress color="secondary" />
+        <LinearProgress color="primary" />
       </div>
     );
   }
