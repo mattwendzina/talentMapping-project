@@ -7,13 +7,6 @@ import Users from "../Users";
 import UserSearch from "../UserSearch";
 
 class UserList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: []
-    };
-  }
-
   render() {
     return (
       <div>
@@ -26,7 +19,7 @@ class UserList extends React.Component {
             onChange={this.props.userInput}
           />
 
-        {/*<Button
+          {/*<Button
             variant="contained"
             color="secondary"
             size="small"

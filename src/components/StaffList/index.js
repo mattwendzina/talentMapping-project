@@ -7,7 +7,7 @@ import Staff from "../Staff";
 import StaffSearch from "../staffSearch";
 import Droppable from "../DnD/Droppable";
 
-class StaffList extends React.Component {
+class staffList extends React.Component {
   render() {
     return (
       <div>
@@ -48,4 +48,4 @@ class StaffList extends React.Component {
   }
 }
 
-export default StaffList;
+export default staffList;

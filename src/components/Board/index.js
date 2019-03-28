@@ -3,21 +3,20 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 import NavBar from "../NavBar/index";
-import Clock from "../Clock/index";
+import ClockTimer from "../Clock";
 import Grid from "../Grid/index";
-import StaffList from "../StaffList/index";
-import UserList from "../UserList/index";
-import ProgressBar from "../ProgressBar";
+import Users from "../StaffList/index";
+// import UserList from "../UserList/index";
+// import ProgressBar from "../ProgressBar";
 
-import DnDTest from "../DnD/DnDTest";
+// import DnDTest from "../DnD/DnDTest";
 // import sampleUsers from "../../sampleUsers.js";
 // import sampleStaffUsers from "../../sampleStaffUsers.js";
 
 const config = require("../../config");
-
 const token = localStorage.getItem("token");
+
 class Board extends React.Component {
- search-function
   constructor(props) {
     super(props);
     this.state = {
@@ -76,14 +75,6 @@ class Board extends React.Component {
     );
   };
 
-  findMatches = (wordToMatch, user) => {
-    return user.filter(user => {
-      const regex = new RegExp(wordToMatch, "gi");
-      // console.log(regex);
-      return user.firstName.match(regex);
-    });
-  };
-
   displayUserMatches = () => {
     const matchesArray = this.findMatches(
       this.state.panelistsValue,
@@ -111,6 +102,7 @@ class Board extends React.Component {
     Staff Users
 -------------------------*/
   staffInput = event => {
+    console.log(event);
     const { value } = event.target;
     this.setState(
       () => ({
@@ -173,6 +165,39 @@ class Board extends React.Component {
       .then(data => console.log(data));
   };
 
+  handleDrop = (userId, position) => {
+    const userIndex = this.state.staffUsers.findIndex(function(user) {
+      return user.user == userId;
+    });
+
+    this.setState(state => ({
+      staffUsers: [
+        ...state.staffUsers.slice(0, userIndex),
+        {
+          ...state.staffUsers[userIndex],
+          position: position
+        },
+        ...state.staffUsers.slice(userIndex + 1)
+      ]
+    }));
+    const token = localStorage.getItem("token");
+    // fetch(`${config.API_URI}/boards/${this.state.boardId}?token=${token}`, {
+    //     method: "PATCH",
+    //     headers: {
+    //         Accept: "application/json",
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         user: userId,
+    //         position: position,
+    //         comments: ""
+    //     })
+    // })
+    //     .then(res => res.json())
+    //     //.then(data => console.log(data));
+    //     .then(data => console.log(data));
+  };
+
   render() {
     return (
       <div>
@@ -184,8 +209,7 @@ class Board extends React.Component {
             <div className="container">
               <div className="listCont">
                 <div>
-                  <StaffList
-                    className="Style.panelist"
+                  <Users
                     title="Panelist"
                     staffInput={this.userInput}
                     inputValue={this.state.panelistsValue}
@@ -193,29 +217,33 @@ class Board extends React.Component {
                     staffUsers={this.state.panelists}
                     activeStaffUsers={this.state.activePanelists}
                   />
-                  <Clock />
-                </div>
-                <div>
-                  <StaffList
-                    className="Style.staffList"
-                    title="Staff List"
-                    staffInput={this.staffInput}
-                    inputValue={this.state.staffValue}
-                    addStaffUser={this.addStaffUser}
-                    staffUsers={this.state.staffUsers}
-                    activeStaffUsers={this.state.activeStaffUsers}
-                  />
+                  <ClockTimer />
+                  <div>
+                    <Users
+                      title="Staff List"
+                      staffInput={this.staffInput}
+                      inputValue={this.state.staffValue}
+                      addStaffUser={this.addStaffUser}
+                      staffUsers={this.state.staffUsers}
+                      activeStaffUsers={this.state.activeStaffUsers}
+                    />
+                  </div>
                 </div>
               </div>
               <div className="gridCont">
                 <div className="Grid">
-                  <Grid />
+                  <Grid
+                    handleDrop={this.handleDrop}
+                    users={this.state.staffUsers}
+                  />
                 </div>
               </div>
-  
             </div>
-        );
-    }
+          </div>
+        )}
+      </div>
+    );
+  }
 }
 
 export default Board;
