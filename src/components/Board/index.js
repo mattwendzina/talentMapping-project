@@ -20,9 +20,7 @@ class RRBoard extends React.Component {
     }
 
     componentDidMount() {
-        //const token = localStorage.getItem("token");
-        const token =
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTM3MTM4NTMsImRhdGEiOnsiZW1haWwiOiJqb25ueUBsZXN0ZXIuY28udWsiLCJmaXJzdE5hbWUiOiJKb25ueSIsImxhc3ROYW1lIjoiTGVzdGVyIn0sImlhdCI6MTU1MzcwMzA1M30.qlbIwxCBMxcVDjsFK1A7K3Q-4MT5nnhZHh3sol-FstQ";
+        const token = localStorage.getItem("token");
         fetch(`${config.API_URI}/boards?token=${token}`, {
             method: "POST",
             headers: {
