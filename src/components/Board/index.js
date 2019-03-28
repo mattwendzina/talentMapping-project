@@ -11,11 +11,13 @@ import DnDTest from "../DnD/DnDTest";
 
 const config = require("../../config");
 
-class RRBoard extends React.Component {
+class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            boardId: ""
+            boardId: "",
+            users:[]
+            // users:[{user: objectID, position: 4}]
         };
     }
 
@@ -57,7 +59,7 @@ class RRBoard extends React.Component {
                             </div>
                             <div className="gridCont">
                                 <div className="Grid">
-                                    <Grid />
+                                    <Grid boardId={this.state.boardId} />
                                 </div>
                             </div>
                         </div>
@@ -68,4 +70,4 @@ class RRBoard extends React.Component {
     }
 }
 
-export default RRBoard;
+export default Board;
