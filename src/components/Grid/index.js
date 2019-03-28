@@ -19,8 +19,8 @@ class Grid extends React.Component {
 
   render() {
     return (
-      <Droppable>
-        <div className={styles.Grid}>
+      <div className={styles.Grid}>
+        <Droppable>
           <div className={styles.gridCont}>
             {this.state.board.map(row => (
               <div className={styles.gridRow}>
@@ -30,8 +30,8 @@ class Grid extends React.Component {
               </div>
             ))}
           </div>
-        </div>
-      </Droppable>
+        </Droppable>
+      </div>
     );
   }
 }
