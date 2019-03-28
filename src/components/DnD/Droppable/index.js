@@ -2,6 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 const config = require("../../../config");
 class Droppable extends React.Component {
+
     drop = event => {
         event.preventDefault();
         const data = event.dataTransfer.getData("moving");
@@ -40,6 +41,7 @@ class Droppable extends React.Component {
             </div>
         );
     }
+
 }
 
 Droppable.propTypes = {
