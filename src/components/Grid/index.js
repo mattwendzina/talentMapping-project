@@ -43,8 +43,29 @@ class Grid extends React.Component {
                                         key={cell.id}
                                         position={cell.id}
                                         className={styles.cell}
+                                        staff={this.props.staff}
+                                        onDrop={event =>
+                                            this.props.handleDrop(
+                                                event.dataTransfer.getData(
+                                                    "moving"
+                                                ),
+                                                event.target.attributes[0].value
+                                            )
+                                        }
                                     >
                                         {cell.desc}
+                                        {this.props.users.map((user, index) => {
+                                            if (user.position === cell.id) {
+                                                return (
+                                                    <li
+                                                        key={index}
+                                                        className="staff"
+                                                    >{`${user.firstName} ${
+                                                        user.lastName
+                                                    }`}</li>
+                                                );
+                                            }
+                                        })}
                                     </span>
                                 ))}
                             </div>

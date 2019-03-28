@@ -4,12 +4,11 @@ const config = require("../../../config");
 class Droppable extends React.Component {
     drop = event => {
         event.preventDefault();
-        const data = event.dataTransfer.getData("moving");
-        event.target.appendChild(document.getElementById(data));
-        console.log(
-            `${this.props.boardId}, ${event.target.attributes[0].value}`
-        );
-        console.log(data);
+        //const data = event.dataTransfer.getData("moving");
+        //event.target.appendChild(document.getElementById(data));
+        //console.log(data);
+        //console.log(`${event.target.attributes[0].value}`);
+        //event.dataTransfer.getData("moving", event.target.id);
     };
 
     allowDrop = event => {
