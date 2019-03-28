@@ -1,6 +1,6 @@
 .staffCont {
   width: 17em;
-  height: 80vh;
+  height: 89vh;
   margin: 2em;
   background-color: #eef6f8;
   margin: 0;
@@ -8,7 +8,7 @@
 
 .users {
   color: #797a7e;
-  padding: 2px;
+  padding: 15px;
 }
 .placeholder {
   border: 2px white solid;
