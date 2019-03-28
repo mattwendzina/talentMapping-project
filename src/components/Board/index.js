@@ -15,7 +15,9 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            boardId: ""
+            boardId: "",
+            users:[]
+            // users:[{user: objectID, position: 4}]
         };
     }
 
