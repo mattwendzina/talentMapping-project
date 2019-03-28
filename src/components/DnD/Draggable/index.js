@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 
 class Draggable extends React.Component {
     drag = event => {
-        console.log(event.target);
+        //console.log(event.target);
         event.dataTransfer.setData("moving", event.target.id);
     };
 
