@@ -7,6 +7,7 @@ import Clock from "../Clock/index";
 import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
+import ProgressBar from "../ProgressBar";
 
 import DnDTest from "../DnD/DnDTest";
 // import sampleUsers from "../../sampleUsers.js";
@@ -16,6 +17,7 @@ const config = require("../../config");
 
 const token = localStorage.getItem("token");
 class Board extends React.Component {
+ search-function
   constructor(props) {
     super(props);
     this.state = {
@@ -210,12 +212,10 @@ class Board extends React.Component {
                   <Grid />
                 </div>
               </div>
+  
             </div>
-          </div>
-        )}
-      </div>
-    );
-  }
+        );
+    }
 }
 
 export default Board;

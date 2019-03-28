@@ -1,9 +1,13 @@
 .users {
   color: #797a7e;
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .material-icons {
   text-align: center;
+}
+
+.headline {
+  color: #333333;
 }
