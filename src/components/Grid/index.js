@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Grid.module.css";
-import Draggable from "../DnD/Draggable";
+//import Draggable from "../DnD/Draggable";
 import Droppable from "../DnD/Droppable";
 
 const numRows = 3;
@@ -54,6 +54,5 @@ class Grid extends React.Component {
             </div>
         );
     }
-
 }
 export default Grid;

@@ -1,11 +1,13 @@
 import React from "react";
 
 class Users extends React.Component {
-  render() {
-    // const { image, name, price, desc, status } = this.props.details;
-
-    return <span className="users">Test Name</span>;
-  }
+    render() {
+        return (
+            <li className="users" id={this.props.userId}>
+                {this.props.userName}
+            </li>
+        );
+    }
 }
 
 export default Users;

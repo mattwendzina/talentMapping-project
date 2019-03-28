@@ -7,7 +7,7 @@ import Clock from "../Clock/index";
 import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
-import DnDTest from "../DnD/DnDTest";
+//import DnDTest from "../DnD/DnDTest";
 
 const config = require("../../config");
 
@@ -16,7 +16,32 @@ class Board extends React.Component {
         super(props);
         this.state = {
             boardId: "",
-            users:[]
+            users: [
+                {
+                    user: "7654redxcvgyu789olmnbvfr",
+                    firstName: "Jonny",
+                    lastName: "Lester",
+                    position: 0
+                },
+                {
+                    user: "plkjhgfder45678ir",
+                    firstName: "Rhys",
+                    lastName: "Handley",
+                    position: 0
+                },
+                {
+                    user: "0987654esxcvbhjk",
+                    firstName: "Sahela",
+                    lastName: "Rani",
+                    position: 0
+                },
+                {
+                    user: "5rfvbgtyujmr",
+                    firstName: "Matt",
+                    lastName: "Wendzina",
+                    position: 0
+                }
+            ]
             // users:[{user: objectID, position: 4}]
         };
     }
@@ -46,15 +71,15 @@ class Board extends React.Component {
                     <Redirect to="/login" />
                 ) : (
                     <div className="App">
-                        <NavBar />
+                        <NavBar boardId={this.state.boardId} />
                         <div className="container">
                             <div className="listCont">
                                 <div>
-                                    <UserList />
+                                    <UserList users={this.state.users} />
                                     <Clock />
                                 </div>
                                 <div>
-                                    <StaffList />
+                                    <StaffList users={this.state.users} />
                                 </div>
                             </div>
                             <div className="gridCont">
