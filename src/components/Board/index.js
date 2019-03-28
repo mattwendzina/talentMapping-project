@@ -7,16 +7,43 @@ import Clock from "../Clock/index";
 import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
-import DnDTest from "../DnD/DnDTest";
-import { LinearProgress } from "@material-ui/core";
+
+//import DnDTest from "../DnD/DnDTest";
 
 const config = require("../../config");
 
-class RRBoard extends React.Component {
+class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardId: ""
+      boardId: "",
+      users: [
+        {
+          user: "7654redxcvgyu789olmnbvfr",
+          firstName: "Jonny",
+          lastName: "Lester",
+          position: 0
+        },
+        {
+          user: "plkjhgfder45678ir",
+          firstName: "Rhys",
+          lastName: "Handley",
+          position: 0
+        },
+        {
+          user: "0987654esxcvbhjk",
+          firstName: "Sahela",
+          lastName: "Rani",
+          position: 0
+        },
+        {
+          user: "5rfvbgtyujmr",
+          firstName: "Matt",
+          lastName: "Wendzina",
+          position: 0
+        }
+      ]
+      // users:[{user: objectID, position: 4}]
     };
   }
 
@@ -45,21 +72,21 @@ class RRBoard extends React.Component {
           <Redirect to="/login" />
         ) : (
           <div className="App">
-            <NavBar />
-            <LinearProgress />
+            <NavBar boardId={this.state.boardId} />
             <div className="container">
               <div className="listCont">
                 <div>
-                  <UserList />
+                  <UserList users={this.state.users} />
                   <Clock />
                 </div>
+
                 <div>
-                  <StaffList />
+                  <StaffList users={this.state.users} />
                 </div>
               </div>
               <div className="gridCont">
                 <div className="Grid">
-                  <Grid />
+                  <Grid boardId={this.state.boardId} />
                 </div>
               </div>
             </div>
@@ -70,4 +97,4 @@ class RRBoard extends React.Component {
   }
 }
 
-export default RRBoard;
+export default Board;

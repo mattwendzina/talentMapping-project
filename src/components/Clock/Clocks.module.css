@@ -1,8 +1,9 @@
 .clockCont {
-  width: 17em;
-  height: 15em;
-  background-color: #eef6f8;
-  margin: 1em;
+    width: 17em;
+    height: 15em;
+    background-color: #eef6f8;
+    margin: 1em;
+    padding: 10px;
 }
 
 .clock {

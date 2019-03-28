@@ -1,14 +1,20 @@
 .staffCont {
   width: 17em;
-  height: 89vh;
+  height: 86.5vh;
   margin: 2em;
   background-color: #eef6f8;
   margin: 0;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .users {
   color: #797a7e;
-  padding: 15px;
+  padding: 9px;
 }
 .placeholder {
   border: 2px white solid;

@@ -1,7 +1,7 @@
 .headerCont {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: #ec0000;
   border: 1px solid #ec0000;
   width: 100%;
