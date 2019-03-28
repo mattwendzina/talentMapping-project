@@ -1,30 +1,4 @@
-.staffCont {
-    width: 17em;
-    height: 80vh;
-    margin: 2em;
-    background-color: #eef6f8;
-    margin: 0;
-    padding: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.users {
-  color: #797a7e;
-  padding: 2px;
-}
-.placeholder {
-    border: 2px white solid;
-}
-
-.button {
-    background-color: white;
-}
-
-.staffCont {
+.userCont {
   position: relative;
   width: 17em;
   height: 25em;
@@ -34,7 +8,7 @@
   padding: 0;
 }
 
-.staffSearchList {
+.userSearchList {
   position: relative;
   z-index: 1;
   color: #797a7e;
@@ -44,7 +18,7 @@
   height: 300px;
   overflow: scroll;
 }
-.staffSetList {
+.userSetList {
   position: absolute;
   top: 15%;
   left: 0;
@@ -57,7 +31,7 @@
   z-index: 0;
 }
 
-.staffSearchLi {
+.userSearchLi {
   border-radius: 5px;
   padding: 10px;
   background-color: green;

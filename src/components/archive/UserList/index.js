@@ -7,13 +7,6 @@ import Users from "../Users";
 import UserSearch from "../UserSearch";
 
 class UserList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: []
-    };
-  }
-
   render() {
     return (
       <div>
@@ -26,7 +19,7 @@ class UserList extends React.Component {
             onChange={this.props.userInput}
           />
 
-        {/*<Button
+          <Button
             variant="contained"
             color="secondary"
             size="small"
@@ -34,24 +27,24 @@ class UserList extends React.Component {
             type="submit"
           >
             +
-          </Button> */}
+          </Button>
 
           {this.props.inputValue && (
             <ul className={Styles.userSearchList}>
-              {this.props.users.map(item => (
+              {this.props.sessionUsers.map(item => (
                 <UserSearch
                   className={Styles.userSearchLi}
-                  users={item}
+                  sessionUsers={item}
                   addUser={this.props.addUser}
                 />
               ))}
             </ul>
           )}
 
-          {this.props.users && (
+          {this.props.activeSessionUsers && (
             <ul className={Styles.userSetList}>
-              {this.props.user2.map(item => (
-                <Users className={Styles.userLi} users={item} />
+              {this.props.activeSessionUsers.map(item => (
+                <Users className={Styles.userLi} activeSessionUsers={item} />
               ))}
             </ul>
           )}

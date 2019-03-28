@@ -7,6 +7,7 @@ import Clock from "../Clock/index";
 import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
+
 import DnDTest from "../DnD/DnDTest";
 // import sampleUsers from "../../sampleUsers.js";
 // import sampleStaffUsers from "../../sampleStaffUsers.js";
@@ -14,8 +15,7 @@ import DnDTest from "../DnD/DnDTest";
 const config = require("../../config");
 
 const token = localStorage.getItem("token");
-
-class RRBoard extends React.Component {
+class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -218,4 +218,4 @@ class RRBoard extends React.Component {
   }
 }
 
-export default RRBoard;
+export default Board;
