@@ -7,6 +7,7 @@ import Clock from "../Clock/index";
 import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
+import ProgressBar from "../ProgressBar";
 
 import DnDTest from "../DnD/DnDTest";
 import sampleUsers from "../../sampleUsers.js";
@@ -51,7 +52,7 @@ class Board extends React.Component {
         };
     }
 
-    //import DnDTest from "../DnD/DnDTest";
+    
 
     componentDidMount() {
         const token = localStorage.getItem("token");
@@ -88,6 +89,7 @@ class Board extends React.Component {
             return user.userName.match(regex);
         });
     };
+
 
     displayMatches = () => {
         const matchesArray = this.findMatches(this.state.value, sampleUsers);

@@ -6,40 +6,36 @@ import TextField from "@material-ui/core/TextField";
 import RedLogo from "../redSantander.jpg";
 
 class NavBar extends React.Component {
+  render() {
+    return (
+      <div className={Styles.headerCont}>
+        <div>
+          <h2 style={{ color: "white", marginLeft: "10px" }}>Talent Grid</h2>
+        </div>
 
-    render() {
-        return (
-            <div className={Styles.headerCont}>
-                <div className={Styles.navLeft}>
-                    <Button
-                        variant="contained"
-                        background-color="white"
-                        size="small"
-                    >
-                        Back
-                    </Button>
+        <div className={Styles.navLeft}>
+          <img
+            src={RedLogo}
+            alt="RedLogo"
+            style={{ width: "220px", height: "80px" }}
+          />
+        </div>
 
-                    <TextField
-                        type="text"
-                        placeholder={this.props.boardId}
-                        className={Styles.textField}
-                        variant="standard"
-                    />
-                </div>
+        <div className={Styles.navRight}>
+          <TextField
+            type="text"
+            placeholder={this.props.boardId}
+            className={Styles.textField}
+            variant="standard"
+          />
 
-                <div className={Styles.navRight}>
-                    <Button
-                        variant="contained"
-                        background-color="white"
-                        size="small"
-                    >
-                        Logout
-                    </Button>
-                </div>
-            </div>
-        );
-    }
-
+          <Button variant="contained" background-color="white" size="small">
+            Logout
+          </Button>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default NavBar;
