@@ -7,7 +7,7 @@ class Draggable extends React.Component {
   };
 
   notAllowDrop = event => {
-    event.stopPropogation();
+    event.stopPropagation();
   };
   render() {
     return (
