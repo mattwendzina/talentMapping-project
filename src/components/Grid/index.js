@@ -34,13 +34,14 @@ class Grid extends React.Component {
     render() {
         return (
             <div className={styles.Grid}>
-                <Droppable>
+                <Droppable boardId={this.props.boardId}>
                     <div className={styles.gridCont}>
-                        {this.state.board.map(row => (
-                            <div className={styles.gridRow}>
+                        {this.state.board.map((row, index) => (
+                            <div key={index} className={styles.gridRow}>
                                 {row.map(cell => (
                                     <span
-                                        gridId={cell.id}
+                                        key={cell.id}
+                                        position={cell.id}
                                         className={styles.cell}
                                     >
                                         {cell.desc}
