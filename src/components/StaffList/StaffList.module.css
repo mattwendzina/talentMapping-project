@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+.users {
+  color: #797a7e;
+  padding: 2px;
+}
 .placeholder {
   border: 2px white solid;
 }

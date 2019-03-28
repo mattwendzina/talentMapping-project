@@ -11,7 +11,7 @@ class Logo extends React.Component {
           <img
             src={logo}
             alt="Santander"
-            style={{ width: "220px", height: "80px" }}
+            style={{ width: "240px", height: "90px" }}
           />
 
           <div className={Styles.right}>

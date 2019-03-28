@@ -1,24 +1,16 @@
 .headerCont {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-end;
   background-color: #ec0000;
   border: 1px solid #ec0000;
   width: 100%;
-  height: 4em;
+  height: 5em;
 }
-
 .navLeft {
   margin: 2em;
 }
 
-.textField {
-  margin: 2em;
-}
-
 .navRight {
-  margin: 2em;
-}
-.textField {
   margin: 2em;
 }
