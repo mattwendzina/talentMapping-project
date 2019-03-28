@@ -1,5 +1,4 @@
 .userCont {
-
   width: 17em;
   height: 25em;
   background-color: #eef6f8;
@@ -15,7 +14,6 @@
 .usersList {
   color: #797a7e;
   padding: 15px;
-
 }
 
 .userSearchList {
@@ -27,8 +25,6 @@
   background: rgba(0, 0, 0, 0.16);
   height: 300px;
   overflow: scroll;
-
-
 }
 .userSetList {
   position: absolute;
