@@ -8,16 +8,20 @@ import Grid from "../Grid/index";
 import StaffList from "../StaffList/index";
 import UserList from "../UserList/index";
 
-//import DnDTest from "../DnD/DnDTest";
+import DnDTest from "../DnD/DnDTest";
+import sampleUsers from "../../sampleUsers.js";
 
 const config = require("../../config");
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            boardId: "",
-            users: [
+  constructor(props) {
+    super(props);
+    this.state = {
+      boardId: "",
+      users: [],
+      value: "",
+      users2: [],
+      testUsers: [
                 {
                     user: "7654redxcvgyu789olmnbvfr",
                     firstName: "Jonny",
@@ -45,8 +49,9 @@ class Board extends React.Component {
             ]
             // users:[{user: objectID, position: 4}]
         };
-    }
+ }
 
+//import DnDTest from "../DnD/DnDTest";
 
   componentDidMount() {
     const token = localStorage.getItem("token");
@@ -67,32 +72,75 @@ class Board extends React.Component {
   }
 
 
-    render() {
-        return (
-            <div>
-                {!this.props.isLoggedIn ? (
-                    <Redirect to="/login" />
-                ) : (
-                    <div className="App">
-                        <NavBar boardId={this.state.boardId} />
-                        <div className="container">
-                            <div className="listCont">
-                                <div>
-                                    <UserList users={this.state.users} />
-                                    <Clock />
-                                </div>
-                                <div>
-                                    <StaffList users={this.state.users} />
-                                </div>
-                            </div>
-                            <div className="gridCont">
-                                <div className="Grid">
-                                    <Grid boardId={this.state.boardId} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+  userInput = event => {
+    const { value } = event.target;
+    this.setState(
+      () => ({
+        value: value
+      }),
+      this.displayMatches
+    );
+  };
+
+  findMatches = (wordToMatch, user) => {
+    return user.filter(user => {
+      const regex = new RegExp(wordToMatch, "gi");
+      console.log(regex);
+      return user.userName.match(regex);
+    });
+  };
+
+  displayMatches = () => {
+    const matchesArray = this.findMatches(this.state.value, sampleUsers);
+    console.log(matchesArray);
+    this.setState(() => ({
+      users: matchesArray
+    }));
+  };
+
+  addUser = e => {
+    console.log(innerText);
+    const innerText = e.target.innerText;
+    this.setState(
+      () => ({
+        users2: [...this.state.users2, { user: innerText }],
+        value: ""
+      }),
+      function() {
+        console.log(this.state.users);
+      }
+    );
+  };
+
+  render() {
+    return (
+      <div>
+        {!this.props.isLoggedIn ? (
+          <Redirect to="/login" />
+        ) : (
+          <div className="App">
+            <NavBar />
+            <div className="container">
+              <div className="listCont">
+                <div>
+                  <UserList
+                    users={this.state.users}
+                    userInput={this.userInput}
+                    inputValue={this.state.value}
+                    addUser={this.addUser}
+                    user2={this.state.users2}
+                  />
+                  <Clock />
+                </div>
+                <div>
+                  <StaffList />
+                </div>
+              </div>
+              <div className="gridCont">
+                <div className="Grid">
+                  <Grid />
+                </div>
+              </div>
 
             </div>
           </div>
