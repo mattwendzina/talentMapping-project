@@ -1,11 +1,20 @@
 import React from "react";
-import Styles from "./Users.module.css";
+import Styles from "./staff.module.css";
 
-class Users extends React.Component {
-  render() {
-    // const { image, name, price, desc, status } = this.props.details;
-    return <li className={Styles.userLi}>{this.props.users.user}</li>;
-  }
+import Draggable from "../DnD/Draggable";
+
+class Staff extends React.Component {
+    render() {
+        return (
+            <>
+                <Draggable userid={this.props.activeStaffUsers.userId}>
+                    <li className={Styles.staffLi}>
+                        {this.props.activeStaffUsers.user}
+                    </li>
+                </Draggable>
+            </>
+        );
+    }
 }
 
-export default Users;
+export default Staff;

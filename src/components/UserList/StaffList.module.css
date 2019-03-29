@@ -1,6 +1,19 @@
-.staffCont {
+/* .panelistColumn {
   width: 17em;
-  height: 86.5vh;
+  height: 88vh;
+  margin: 2em;
+  background-color: #eef6f8;
+  margin: 0;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.staffColumn {
+  width: 17em;
+  height: 88vh;
   margin: 2em;
   background-color: #eef6f8;
   margin: 0;
@@ -22,16 +35,6 @@
 
 .button {
   background-color: white;
-}
-
-.staffCont {
-  position: relative;
-  width: 17em;
-  height: 25em;
-  background-color: #eef6f8;
-  margin: 1em;
-  order: 1;
-  padding: 0;
 }
 
 .staffSearchList {
@@ -62,4 +65,4 @@
   padding: 10px;
   background-color: green;
   margin: 10px;
-}
+} */
