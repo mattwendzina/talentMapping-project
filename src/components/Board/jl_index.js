@@ -23,6 +23,7 @@ class Board extends React.Component {
             users2: [],
             testUsers: [
                 {
+                    //now userId
                     user: "5c9a4630c84ee933ccb7ccc6",
                     firstName: "Jonny",
                     lastName: "Lester",
@@ -117,30 +118,30 @@ class Board extends React.Component {
     findMatches = (wordToMatch, user) => {
         return user.filter(user => {
             const regex = new RegExp(wordToMatch, "gi");
-            console.log(regex);
+            //console.log(regex);
             return user.userName.match(regex);
         });
     };
 
     displayMatches = () => {
         const matchesArray = this.findMatches(this.state.value, sampleUsers);
-        console.log(matchesArray);
+        //console.log(matchesArray);
         this.setState(() => ({
             users: matchesArray
         }));
     };
 
     addUser = e => {
-        console.log(innerText);
+        //console.log(innerText);
         const innerText = e.target.innerText;
         this.setState(
             () => ({
                 users2: [...this.state.users2, { user: innerText }],
                 value: ""
-            }),
-            function() {
-                console.log(this.state.users);
-            }
+            })
+            // function() {
+            //     console.log(this.state.users);
+            // }
         );
     };
 

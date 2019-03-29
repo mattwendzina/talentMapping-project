@@ -1,15 +1,11 @@
 import React from "react";
 import styles from "./Grid.module.css";
-//import Draggable from "../DnD/Draggable";
+import Draggable from "../DnD/Draggable";
 import Droppable from "../DnD/Droppable";
 
-const numRows = 3;
-const numCols = 3;
 class Grid extends React.Component {
     constructor(props) {
         super(props);
-        //const board = new Array(numRows).fill(new Array(numCols).fill(boardfill));
-
         this.state = {
             board: [
                 [
@@ -44,25 +40,26 @@ class Grid extends React.Component {
                                         position={cell.id}
                                         className={styles.cell}
                                         staff={this.props.staff}
-                                        onDrop={event =>
+                                        onDrop={event => {
                                             this.props.handleDrop(
                                                 event.dataTransfer.getData(
                                                     "moving"
                                                 ),
                                                 event.target.attributes[0].value
-                                            )
-                                        }
+                                            );
+                                        }}
                                     >
                                         {cell.desc}
                                         {this.props.users.map((user, index) => {
                                             if (user.position === cell.id) {
                                                 return (
-                                                    <li
-                                                        key={index}
-                                                        className="staff"
-                                                    >{`${user.firstName} ${
-                                                        user.lastName
-                                                    }`}</li>
+                                                    <Draggable
+                                                        userid={user.userId}
+                                                    >
+                                                        <li className="staff">{`${
+                                                            user.user
+                                                        }`}</li>
+                                                    </Draggable>
                                                 );
                                             }
                                         })}

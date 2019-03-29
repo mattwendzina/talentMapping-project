@@ -1,14 +1,11 @@
 import React from "react";
 import propTypes from "prop-types";
-const config = require("../../../config");
+//const config = require("../../../config");
 class Droppable extends React.Component {
     drop = event => {
         event.preventDefault();
-        //const data = event.dataTransfer.getData("moving");
-        //event.target.appendChild(document.getElementById(data));
-        //console.log(data);
-        //console.log(`${event.target.attributes[0].value}`);
-        //event.dataTransfer.getData("moving", event.target.id);
+        event.dataTransfer.getData("moving", event.target.id);
+        //console.log(event.dataTransfer.getData("moving", event.target));
     };
 
     allowDrop = event => {
