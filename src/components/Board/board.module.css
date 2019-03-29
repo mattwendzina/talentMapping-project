@@ -1,0 +1,31 @@
+.row1 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+}
+
+.row2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.row1 div,
+.row2 div {
+  background: aliceblue;
+  width: 80%;
+  margin: 20px auto 0 auto;
+}
+.row1 ul,
+.row2 ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+.row1 ul li,
+.row2 ul li {
+  list-style-type: none;
+  width: 150px;
+}

@@ -1,54 +1,72 @@
 import React from "react";
-import Styles from "./UserList.module.css";
-import ReactDOM from "react-dom";
-import Button from "@material-ui/core/Button";
+import Styles from "./StaffList.module.css";
+//import ReactDOM from "react-dom";
+//import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Users from "../Users";
 import UserSearch from "../UserSearch";
+import Droppable from "../DnD/Droppable";
 
 class UserList extends React.Component {
   render() {
     return (
       <div>
-        <div className={Styles.userCont}>
-          <h3>Session Users</h3>
-          <TextField
-            type="text"
-            placeholder="Add User"
-            variant="standard"
-            onChange={this.props.userInput}
-          />
+        <Droppable>
+          <div className={Styles.panelistColumn}>
+            <h3 className={Styles.users}>{this.props.title}</h3>
+            <TextField
+              className={Styles.placeholder}
+              type="text"
+              placeholder="Seach Employee"
+              variant="standard"
+              onChange={this.props.staffInput}
+            />
 
-          {/*<Button
-            variant="contained"
-            color="secondary"
-            size="small"
-            className={Styles.button}
-            type="submit"
-          >
-            +
-          </Button> */}
+            {this.props.inputValue && (
+              <ul className={Styles.staffSearchList}>
+                {this.props.staffUsers.map((item, index) => (
+                  <UserSearch
+                    key={index}
+                    className={Styles.staffSearchLi}
+                    staffUser={item}
+                    addStaffUser={this.props.addStaffUser}
+                  />
+                ))}
+              </ul>
+            )}
 
-          {this.props.inputValue && (
-            <ul className={Styles.userSearchList}>
-              {this.props.users.map(item => (
-                <UserSearch
-                  className={Styles.userSearchLi}
-                  users={item}
-                  addUser={this.props.addUser}
-                />
-              ))}
-            </ul>
-          )}
-
-          {this.props.users && (
-            <ul className={Styles.userSetList}>
-              {this.props.user2.map(item => (
-                <Users className={Styles.userLi} users={item} />
-              ))}
-            </ul>
-          )}
-        </div>
+            {this.props.activeStaffUsers && (
+              <ul className={Styles.staffSetList}>
+                {this.props.activeStaffUsers.map((item, index) => {
+                  if (item.position === 0) {
+                    return (
+                      <Users
+                        key={index}
+                        className={Styles.userLi}
+                        activeStaffUsers={item}
+                      />
+                    );
+                  }
+                })}
+              </ul>
+            )}
+            {/* {this.props.activeStaffUsers && (
+              <ul className={Styles.staffSetList}>
+                {this.props.activeStaffUsers.map((item, index) => {
+                  if (item.position === 0) {
+                    return (
+                      <Users
+                        key={index}
+                        className={Styles.userLi}
+                        activeStaffUsers={item}
+                      />
+                    );
+                  }
+                })}
+              </ul>
+            )} */}
+          </div>
+        </Droppable>
       </div>
     );
   }
