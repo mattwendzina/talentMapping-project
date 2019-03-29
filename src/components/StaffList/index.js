@@ -38,13 +38,17 @@ class staffList extends React.Component {
                         {this.props.activeStaffUsers && (
                             <ul className={Styles.staffSetList}>
                                 {this.props.activeStaffUsers.map(
-                                    (item, index) => (
-                                        <Staff
-                                            key={index}
-                                            className={Styles.userLi}
-                                            activeStaffUsers={item}
-                                        />
-                                    )
+                                    (item, index) => {
+                                        if (item.position === 0) {
+                                            return (
+                                                <Staff
+                                                    key={index}
+                                                    className={Styles.userLi}
+                                                    activeStaffUsers={item}
+                                                />
+                                            );
+                                        }
+                                    }
                                 )}
                             </ul>
                         )}

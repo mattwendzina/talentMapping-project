@@ -40,25 +40,24 @@ class Grid extends React.Component {
                                         position={cell.id}
                                         className={styles.cell}
                                         staff={this.props.staff}
-                                        onDrop={event =>
+                                        onDrop={event => {
                                             this.props.handleDrop(
                                                 event.dataTransfer.getData(
                                                     "moving"
                                                 ),
                                                 event.target.attributes[0].value
-                                            )
-                                        }
+                                            );
+                                        }}
                                     >
                                         {cell.desc}
                                         {this.props.users.map((user, index) => {
                                             if (user.position === cell.id) {
                                                 return (
-                                                    <Draggable>
-                                                        <li
-                                                            key={user.id}
-                                                            className="staff"
-                                                        >{`${user.firstName} ${
-                                                            user.lastName
+                                                    <Draggable
+                                                        userid={user.userId}
+                                                    >
+                                                        <li className="staff">{`${
+                                                            user.user
                                                         }`}</li>
                                                     </Draggable>
                                                 );

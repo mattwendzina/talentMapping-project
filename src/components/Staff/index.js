@@ -4,13 +4,6 @@ import Styles from "./staff.module.css";
 import Draggable from "../DnD/Draggable";
 
 class Staff extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            talent: []
-        };
-    }
-
     render() {
         return (
             <>

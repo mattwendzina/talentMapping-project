@@ -165,9 +165,11 @@ class Board extends React.Component {
 
     handleDrop = (userId, position) => {
         const userIndex = this.state.activeStaffUsers.findIndex(function(user) {
-            return user.user === userId;
+            return user.userId === userId;
         });
-        console.log(userId, userIndex, position);
+        if (userIndex < 0) {
+            return;
+        }
         this.setState(state => ({
             activeStaffUsers: [
                 ...state.activeStaffUsers.slice(0, userIndex),
@@ -178,20 +180,19 @@ class Board extends React.Component {
                 ...state.activeStaffUsers.slice(userIndex + 1)
             ]
         }));
-        // const token = localStorage.getItem("token");
-        // fetch(`${config.API_URI}/boards/${this.state.boardId}?token=${token}`, {
-        //     method: "PATCH",
-        //     headers: {
-        //         Accept: "application/json",
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         user: userId,
-        //         position: position,
-        //         comments: ""
-        //     })
-        // })
-        //     .then(res => res.json())
+        const token = localStorage.getItem("token");
+        fetch(`${config.API_URI}/boards/${this.state.boardId}?token=${token}`, {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user: userId,
+                position: position,
+                comments: ""
+            })
+        }).then(res => res.json());
         //     .then(data => console.log(data));
     };
 
