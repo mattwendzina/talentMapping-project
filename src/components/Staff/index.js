@@ -14,11 +14,8 @@ class Staff extends React.Component {
     render() {
         return (
             <>
-                <Draggable>
-                    <li
-                        id={this.props.activeStaffUsers.userId}
-                        className={Styles.staffLi}
-                    >
+                <Draggable userid={this.props.activeStaffUsers.userId}>
+                    <li className={Styles.staffLi}>
                         {this.props.activeStaffUsers.user}
                     </li>
                 </Draggable>
