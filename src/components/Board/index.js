@@ -21,6 +21,7 @@ class Board extends React.Component {
         super(props);
         this.state = {
             boardId: "",
+            updatedAt: "",
             panelists: [],
             matchPanelists: [],
             activePanelists: [],
@@ -44,7 +45,8 @@ class Board extends React.Component {
             //.then(data => console.log(data));
             .then(data =>
                 this.setState(state => ({
-                    boardId: data.payload.boardId
+                    boardId: data.payload.boardId,
+                    updatedAt: data.payload.updatedAt
                 }))
             );
         fetch(`${config.API_URI}/users?token=${token}`)
@@ -159,8 +161,14 @@ class Board extends React.Component {
                 position: 0,
                 comments: ""
             })
-        }).then(res => res.json());
-        //.then(data => console.log(data));
+        })
+            .then(res => res.json())
+            .then(data =>
+                this.setState(state => ({
+                    boardId: data.payload.boardId,
+                    updatedAt: data.payload.updatedAt
+                }))
+            );
     };
 
     handleDrop = (userId, position) => {
@@ -192,8 +200,13 @@ class Board extends React.Component {
                 position: position,
                 comments: ""
             })
-        }).then(res => res.json());
-        //     .then(data => console.log(data));
+        })
+            .then(res => res.json())
+            .then(data =>
+                this.setState(state => ({
+                    updatedAt: data.payload.updatedAt
+                }))
+            );
     };
 
     render() {
@@ -203,7 +216,11 @@ class Board extends React.Component {
                     <Redirect to="/login" />
                 ) : (
                     <div className="App">
-                        <NavBar boardId={this.state.boardId} />
+                        <NavBar
+                            boardId={`${
+                                this.state.boardId
+                            } - ${this.state.updatedAt.substring(16, 11)}`}
+                        />
                         <div className="container">
                             <div className="listCont">
                                 <div>
