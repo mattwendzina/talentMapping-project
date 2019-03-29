@@ -13,6 +13,10 @@
   border-radius: 15px;
 }
 
+.staff {
+  padding: 0;
+}
+
 .users {
   color: #797a7e;
   padding: 9px;
@@ -23,8 +27,4 @@
 
 .button {
   background-color: white;
-}
-
-ul {
-  padding: 0;
 }

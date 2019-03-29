@@ -3,8 +3,6 @@ import styles from "./Grid.module.css";
 //import Draggable from "../DnD/Draggable";
 import Droppable from "../DnD/Droppable";
 
-const numRows = 3;
-const numCols = 3;
 class Grid extends React.Component {
   constructor(props) {
     super(props);
