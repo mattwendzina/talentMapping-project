@@ -17,14 +17,16 @@ h6 {
 }
 
 .staff {
-  width: 14em;
   height: 3em;
-  background-color: rgb(174, 175, 177);
+  background-color: green;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1em;
   padding: 0;
+  font-weight: 400;
 }
 
 .users {
@@ -52,6 +54,13 @@ h6 {
   flex-direction: row;
   height: 100vh;
   position: relative;
+}
+
+ul.searchList {
+  position: absolute;
+  top: 13%;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
 
 .App-logo {
