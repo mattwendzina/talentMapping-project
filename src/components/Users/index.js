@@ -3,18 +3,29 @@ import Styles from "./staff.module.css";
 
 import Draggable from "../DnD/Draggable";
 
-class Staff extends React.Component {
+class User extends React.Component {
   render() {
+    console.log(this.props.title);
     return (
       <>
-        <Draggable userid={this.props.activeStaffUsers.userId}>
-          <li key={new Date()} className={Styles.staffLi}>
-            {this.props.activeStaffUsers.user}
+        {this.props.title === "Staff List" ? (
+          <Draggable userid={this.props.activeUsers.userId}>
+            <li key={new Date()} className={Styles.staffLi}>
+              {this.props.activeUsers.user}
+            </li>
+          </Draggable>
+        ) : (
+          <li
+            userid={this.props.activeUsers.userId}
+            key={new Date()}
+            className={Styles.staffLi}
+          >
+            {this.props.activeUsers.user}
           </li>
-        </Draggable>
+        )}
       </>
     );
   }
 }
 
-export default Staff;
+export default User;

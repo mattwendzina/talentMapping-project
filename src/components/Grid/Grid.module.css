@@ -6,24 +6,38 @@
   display: flex;
   align-items: center;
   width: 44em;
-
-  height: 13.33em;
-  border: 3px solid white;
   align-content: center;
   justify-content: center;
-  display: flex;
+}
+
+.gridRow:first-of-type {
+  margin-top: 10px;
 }
 
 .cell {
   padding-top: 10px;
   width: 44em;
-  height: 13.33em;
+  height: 205px;
   border: 3px #c2c2c2 solid;
   background-color: white;
   overflow: scroll;
   font-weight: bold;
 }
 
+.gridRow span {
+  padding: 5px;
+}
+.gridRow span:nth-of-type(2) {
+  border-top: 3px 0 3px 0 #c2c2c2 solid;
+  border-bottom: 3px 0 3px 0 #c2c2c2 solid;
+  border-right: none;
+  border-left: none;
+}
+
+.gridRow:nth-of-type(2) span {
+  border-top: none;
+  border-bottom: none;
+}
 .cell div:last-child {
   margin-bottom: 40px;
 }

@@ -1,11 +1,15 @@
-.clockCont {
-  width: 17em;
-  height: 15em;
+.clockContainer {
+  width: 80%;
+  margin: 5px 0;
   background-color: #eef6f8;
-  margin: 1em;
+  border-radius: 15px;
+}
+
+.clockCont {
+  height: 15em;
 }
 
 .clock {
-  margin-left: 20%;
+  margin: 0 auto;
   top: 20%;
 }

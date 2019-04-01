@@ -1,28 +1,21 @@
 .row1 {
   flex: 1;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  height: 80vh;
-}
-ul#aweswomw {
-}
-
-ul.ijo li.asd span {
+  align-items: flex-start;
+  margin-top: 10px;
+  height: 90vh;
 }
 
 .row2 {
   flex: 1;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 86vh;
+  margin-top: 10px;
 }
 
-.row1 div,
-.row2 div {
-  background: aliceblue;
-  width: 80%;
-  margin: 0 auto;
-}
 .row1 ul,
 .row2 ul {
   padding: 0;

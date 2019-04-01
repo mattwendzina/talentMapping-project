@@ -226,9 +226,9 @@ class Board extends React.Component {
                     inputValue={this.state.panelistsValue}
                     addUser={this.addUser}
                     staffUsers={this.state.panelists}
-                    activeStaffUsers={this.state.activePanelists}
+                    activeUsers={this.state.activePanelists}
                   />
-                  {/* <ClockTimer /> */}
+                  <ClockTimer />
                 </div>
                 <div className={Styles.row2}>
                   <UserList
@@ -238,7 +238,7 @@ class Board extends React.Component {
                     inputValue={this.state.staffValue}
                     addUser={this.addStaffUser}
                     staffUsers={this.state.staffUsers}
-                    activeStaffUsers={this.state.activeStaffUsers}
+                    activeUsers={this.state.activeStaffUsers}
                   />
                 </div>
               </div>
