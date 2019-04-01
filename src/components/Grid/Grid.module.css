@@ -23,3 +23,7 @@
   overflow: scroll;
   font-weight: bold;
 }
+
+.cell div:last-child {
+  margin-bottom: 40px;
+}

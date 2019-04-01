@@ -49,7 +49,7 @@ class LogInContainer extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.onLogin}>
+      <form className={Styles.form} onSubmit={this.onLogin}>
         <h3 className={Styles.users}>Welcome</h3>
         <h4 className={Styles.headline}>Digital Talent Manager</h4>
         <TextField
