@@ -15,14 +15,11 @@
 }
 
 .cell {
-  display: flex;
+  padding-top: 10px;
   width: 44em;
-
   height: 13.33em;
   border: 3px #c2c2c2 solid;
   background-color: white;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  overflow: scroll;
+  font-weight: bold;
 }
