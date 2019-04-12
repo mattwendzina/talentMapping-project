@@ -45,14 +45,14 @@ h6 {
   align-items: flex-start;
   justify-content: flex-start;
   width: 50vw;
-  position: relative;
 }
 
 ul.searchList {
   position: absolute;
-  top: 13%;
+  top: 15%;
+  left: 24%;
   background: rgba(0, 0, 0, 0.3);
-  padding: 10px;
+  padding: 10px !important;
 }
 
 .App-logo {

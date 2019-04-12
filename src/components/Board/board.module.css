@@ -6,6 +6,7 @@
   align-items: flex-start;
   margin-top: 10px;
   height: 90vh;
+  position: relative;
 }
 
 .row2 {
@@ -14,6 +15,7 @@
   justify-content: center;
   height: 86vh;
   margin-top: 10px;
+  position: relative;
 }
 
 .row1 ul,
@@ -27,4 +29,5 @@
 .row2 ul li {
   list-style-type: none;
   width: 150px;
+  margin: 10px auto;
 }
