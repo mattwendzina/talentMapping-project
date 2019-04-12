@@ -9,22 +9,17 @@ h6 {
   width: 100vw;
 }
 
-.gridCont {
-  display: flex;
-  width: 50vw;
-  align-items: center;
-  justify-items: center;
-}
-
 .staff {
-  width: 14em;
   height: 3em;
-  background-color: rgb(174, 175, 177);
+  background-color: green;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1em;
   padding: 0;
+  font-weight: 400;
 }
 
 .users {
@@ -40,6 +35,7 @@ h6 {
 
 .container {
   display: flex;
+  align-items: flex-start;
   position: absolute;
   box-sizing: border-box;
 }
@@ -49,9 +45,14 @@ h6 {
   align-items: flex-start;
   justify-content: flex-start;
   width: 50vw;
-  flex-direction: row;
-  height: 100vh;
   position: relative;
+}
+
+ul.searchList {
+  position: absolute;
+  top: 13%;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
 
 .App-logo {

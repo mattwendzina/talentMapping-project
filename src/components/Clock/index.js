@@ -13,7 +13,7 @@ class ClockTimer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={Styles.clockContainer}>
         <div className={Styles.clockCont}>
           <Clock className={Styles.clock} value={this.state.date} />
         </div>
