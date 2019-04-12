@@ -16,7 +16,6 @@ import Styles from "./board.module.css";
 // import sampleStaffUsers from "../../sampleStaffUsers.js";
 
 const config = require("../../config");
-const token = localStorage.getItem("token");
 
 class Board extends React.Component {
     constructor(props) {
@@ -36,13 +35,16 @@ class Board extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`${config.API_URI}/boards?token=${token}`, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
+        fetch(
+            `${config.API_URI}/boards?token=${localStorage.getItem("token")}`,
+            {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                }
             }
-        })
+        )
             .then(res => res.json())
             //.then(data => console.log(data));
             .then(data =>
@@ -51,7 +53,7 @@ class Board extends React.Component {
                     updatedAt: data.payload.updatedAt
                 }))
             );
-        fetch(`${config.API_URI}/users?token=${token}`)
+        fetch(`${config.API_URI}/users?token=${localStorage.getItem("token")}`)
             .then(res => res.json())
             .then(users =>
                 this.setState(
@@ -153,18 +155,23 @@ class Board extends React.Component {
             staffValue: ""
         }));
 
-        fetch(`${config.API_URI}/boards/${this.state.boardId}?token=${token}`, {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                user: userId,
-                position: 0,
-                comments: ""
-            })
-        })
+        fetch(
+            `${config.API_URI}/boards/${
+                this.state.boardId
+            }?token=${localStorage.getItem("token")}`,
+            {
+                method: "PATCH",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user: userId,
+                    position: 0,
+                    comments: ""
+                })
+            }
+        )
             .then(res => res.json())
             .then(data =>
                 this.setState(state => ({
@@ -190,19 +197,23 @@ class Board extends React.Component {
                 ...state.activeStaffUsers.slice(userIndex + 1)
             ]
         }));
-        const token = localStorage.getItem("token");
-        fetch(`${config.API_URI}/boards/${this.state.boardId}?token=${token}`, {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                user: userId,
-                position: position,
-                comments: ""
-            })
-        })
+        fetch(
+            `${config.API_URI}/boards/${
+                this.state.boardId
+            }?token=${localStorage.getItem("token")}`,
+            {
+                method: "PATCH",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user: userId,
+                    position: position,
+                    comments: ""
+                })
+            }
+        )
             .then(res => res.json())
             .then(data =>
                 this.setState(state => ({
