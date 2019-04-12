@@ -28,8 +28,7 @@
   padding: 5px;
 }
 .gridRow span:nth-of-type(2) {
-  border-top: 3px 0 3px 0 #c2c2c2 solid;
-  border-bottom: 3px 0 3px 0 #c2c2c2 solid;
+  border: 3px 0 3px 0 #c2c2c2 solid;
   border-right: none;
   border-left: none;
 }
